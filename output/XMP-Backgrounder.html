@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Leonard Rosenthol" />
+  <meta name="date" content="2021-04-25" />
+  <meta name="copyright" content="Copyright(c) 2021, Adobe" />
+  <meta name="font-size-adjustment" content="+1" />
+  <title>XMP Backgrounder</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="../slidy/styles/slidy.css" />
+  <script src="../slidy/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="background">
+  <img alt="" id="head-icon" width="100px" height="100px" style="float:right" src="../slidy/graphics/C2PA-logo.svg" />
+</div>
+<div class="slide titlepage">
+  <h1 class="title">XMP Backgrounder</h1>
+  <p class="author">
+Leonard Rosenthol
+  </p>
+  <p class="date">2021-04-25</p>
+</div>
+<div id="xmp-extensible-metadata-platform" class="title-slide slide section level1">
+<h1>XMP: Extensible Metadata Platform</h1>
+
+</div>
+<div id="xmp-extensible-metadata-platform-1" class="slide section level2">
+<h1>XMP: Extensible Metadata Platform</h1>
+<p>XMP is a labeling technology that allows you to embed data about a file, as metadata, into the file itself.</p>
+<p>With XMP, applications and back-end publishing systems gain a common method for capturing, sharing, and leveraging this valuable metadata — opening the door for more efficient job processing, workflow automation, and rights management, among many other possibilities."</p>
+</div>
+<div id="based-on-open-standards" class="slide section level2">
+<h1>Based on Open Standards</h1>
+<ul>
+<li>W3C RDF (https://www.w3.org/RDF/)
+<ul>
+<li>Standard model for data interchange on the Web</li>
+<li>Basis for all web-based metadata (RDFa, microdata, JSON-LD, schema.org, etc.)</li>
+</ul></li>
+<li>ISO Specifications
+<ul>
+<li>Primary: 16684-1</li>
+<li>Schemas Definitions: 16684-2</li>
+<li>JSON Serialization: 16684-3</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="elements-of-xmp" class="title-slide slide section level1">
+<h1>Elements of XMP</h1>
+
+</div>
+<div id="elements-of-xmp-1" class="slide section level2">
+<h1>Elements of XMP</h1>
+<ul>
+<li>XMP Framework
+<ul>
+<li>RDF Framework or expressing metadata from multiple schemas</li>
+</ul></li>
+<li>XMP schemas
+<ul>
+<li>Schemas used to describe properties, contained in namespaces</li>
+</ul></li>
+<li>XMP Packet Technology
+<ul>
+<li>Method for embedding XML fragments in binary streams</li>
+</ul></li>
+</ul>
+</div>
+<div id="xmp-schemas" class="slide section level2">
+<h1>XMP Schemas</h1>
+<ul>
+<li><p>RDF specifies labels into sequences of XML structured as resource, property, value (alternatively subject, predicate, object). RDF Schemas define vocabularies.</p></li>
+<li><p>Standard XMP schemas (maintained by Adobe)</p>
+<ul>
+<li>https://github.com/adobe/xmp-docs/tree/master/XMPNamespaces</li>
+</ul></li>
+<li><p>Any schema, provided it is defined according to the specification.</p>
+<ul>
+<li>eg. domain-specific schemas (examples: IPTC, NewsML, AdsML) can be described</li>
+</ul></li>
+</ul>
+</div>
+<div id="example-dublin-core-namespace" class="slide section level2">
+<h1>Example: Dublin Core namespace</h1>
+<p>The Dublin Core namespace provides a set of commonly used properties. The names and usage shall be as defined in the Dublin Core Metadata Element Set, created by the Dublin Core Metadata Initiative (DCMI).</p>
+<ul>
+<li>The preferred namespace prefix is dc</li>
+</ul>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="57%" />
+<col width="21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dc:contributor</td>
+<td>An entity responsible for making contributions to the resource. Examples of a contributor include a person, an organization, or a service. Typically, the name of a contributor should be used to indicate the entity.</td>
+<td>Unordered array of <a href="./XMPDataTypes/CoreProperties.md#propername">ProperName</a></td>
+</tr>
+<tr class="even">
+<td>dc:creator</td>
+<td>An entity primarily responsible for making the resource. Examples of a creator include a person, an organization, or a service. Typically, the name of a creator should be used to indicate the entity.</td>
+<td>Ordered array of <a href="./XMPDataTypes/CoreProperties.md#propername">ProperName</a></td>
+</tr>
+<tr class="odd">
+<td>dc:date</td>
+<td>A point or period of time associated with an event in the life cycle of the resource.</td>
+<td>Ordered array of <a href="./XMPDataTypes/CoreProperties.md#date">Date</a></td>
+</tr>
+<tr class="even">
+<td>dc:format</td>
+<td>The file format, physical medium, or dimensions of the resource. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</td>
+<td><a href="./XMPDataTypes/CoreProperties.md#mimetype">MIMEType</a></td>
+</tr>
+<tr class="odd">
+<td>dc:identifier</td>
+<td>An unambiguous reference to the resource within a given context. Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</td>
+<td><a href="./XMPDataTypes/CoreProperties.md#text">Text</a></td>
+</tr>
+<tr class="even">
+<td>dc:language</td>
+<td>A language of the resource.</td>
+<td>Unordered array of <a href="./XMPDataTypes/CoreProperties.md#locale">Locale</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="supported-in-numerous-file-formats" class="title-slide slide section level1">
+<h1>Supported in numerous file formats</h1>
+
+</div>
+<div id="image-formats" class="slide section level2">
+<h1>Image formats</h1>
+<ul>
+<li>DNG</li>
+<li>GIF</li>
+<li>JPEG (incl. JPEG XT, JPEG XL, etc.)</li>
+<li>JPEG 2000</li>
+<li>PNG</li>
+<li>TIFF</li>
+<li>SVG</li>
+<li>AVIF</li>
+<li>HEIF</li>
+<li>WebP</li>
+</ul>
+</div>
+<div id="dynamic-media-formats" class="slide section level2">
+<h1>Dynamic media formats</h1>
+<ul>
+<li>ASF (WMA, WMV)</li>
+<li>FLV (Flash® Video)</li>
+<li>IFF/RIFF (AVI, WAV, AIFF)</li>
+<li>MOV (QuickTime)</li>
+<li>MP3</li>
+<li>MPEG-2</li>
+<li>MPEG-4 (generic and F4V)</li>
+<li>SWF (Flash)</li>
+</ul>
+</div>
+<div id="video-package-formats" class="slide section level2">
+<h1>Video package formats</h1>
+<ul>
+<li>AVCHD</li>
+<li>P2</li>
+<li>Sony HDV (High Definition Video)</li>
+<li>XDCAM</li>
+</ul>
+</div>
+<div id="markup-formats" class="slide section level2">
+<h1>Markup formats</h1>
+<ul>
+<li>HTML</li>
+<li>XML</li>
+</ul>
+</div>
+<div id="document-formats" class="slide section level2">
+<h1>Document formats</h1>
+<ul>
+<li>PDF</li>
+<li>PS, EPS (PostScript® and Encapsulated PostScript)</li>
+<li>UCF/OCF (Universal/Open Container Format)
+<ul>
+<li>EPUB</li>
+</ul></li>
+<li>ODF (Open Document Format aka Open/Libre Office)</li>
+<li>OOXML?? (Office Open XML aka MSOffice)</li>
+</ul>
+</div>
+<div id="adobe-application-formats" class="slide section level2">
+<h1>Adobe application formats</h1>
+<ul>
+<li>AI (Adobe Illustrator®)</li>
+<li>INDD (Adobe InDesign®)</li>
+<li>PSD (Adobe Photoshop)</li>
+</ul>
+</div>
+
+<div id="questions" class="title-slide slide section level1">
+<h1>Questions?</h1>
+
+</div>
+</body>
+</html>
