@@ -43,8 +43,7 @@ convertOne() {
 if [ $# -eq 0 ]
   then
     echo "Converting all presentations"
-    convertOne "Technical_Requirements"
-    convertOne "High-level_Requirements"
+    convertOne "XMP-Backgrounder"
 fi
 if [ $# -eq 1 ]
   then
